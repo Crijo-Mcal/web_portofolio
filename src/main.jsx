@@ -234,7 +234,7 @@ function App() {
         {/* Hero */}
         <section
           id="inicio"
-          className={`${section} pt-[clamp(0rem,10vw,3rem)]`}
+          className={`${section} pt-[clamp(0rem,10vw,4rem)]`}
         >
           <div
             className={`${container} grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_.9fr] md:gap-16`}
@@ -367,7 +367,7 @@ function App() {
                 </motion.a>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 className="justify-center md:justify-start"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
@@ -379,7 +379,7 @@ function App() {
                 }}
               >
                 <SocialLinks />
-              </motion.div>
+              </motion.div> */}
             </div>
 
             <motion.div
@@ -568,11 +568,11 @@ function App() {
 
             <motion.div
               className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
-              initial={{opacity: 0, y: 50}}
+              initial={{opacity: 0, y: 28}}
               whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.2}}
+              viewport={{once: true, amount: 0.1}}
               transition={{
-                duration: 0.8,
+                duration: 0.75,
                 ease: [0.22, 1, 0.36, 1],
               }}
             >

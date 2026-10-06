@@ -85,7 +85,7 @@ export const projects = [
       "Redis",
     ],
     image: "wheder_app.png",
-    projectUrl: "https://weather-api-theta-seven.vercel.app/",
+    projectUrl: "https://weather-app.crijolise.com",
     repositoryUrl: "https://github.com/Crijo-Mcal/Weather-API",
   },
   {
@@ -96,7 +96,7 @@ export const projects = [
       "Aplicação web para pesquisar e explorar informações sobre filmes através de uma API.",
     tags: ["React", "Vite", "API", "Tailwind CSS"],
     image: "movie_exprorer.png",
-    projectUrl: "https://movie-explorer-nine-tau.vercel.app/",
+    projectUrl: "https://movie-explorer.crijolise.com",
     repositoryUrl: "https://github.com/Crijo-Mcal/Movie-Explorer",
   },
   {
@@ -107,7 +107,7 @@ export const projects = [
       "Aplicação web para pesquisar e explorar receitas através de uma API.",
     tags: ["React", "Vite", "API", "Tailwind CSS"],
     image: "resep_fider.png",
-    projectUrl: "https://recipe-finder-phi-one.vercel.app/",
+    projectUrl: "https://recipe-finder.crijolise.com",
     repositoryUrl: "https://github.com/Crijo-Mcal/Recipe-Finder",
   },
 ];
