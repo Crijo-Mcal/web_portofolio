@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {createRoot} from "react-dom/client";
+import {motion} from "motion/react";
 import {
   ArrowUpRight,
   Download,
@@ -125,7 +126,7 @@ function ProjectCard({project}) {
             className="h-full min-h-45 w-full object-cover p-2 max-sm:min-h-40"
           />
         ) : (
-          <div className="w-[70%] border border-[#20284b] bg-[#080b16] p-4 shadow-[var(--shadow-card)]">
+          <div className="w-[70%] border border-[#20284b] bg-[#080b16] p-4 shadow-(--shadow-card)">
             <div className="mb-5 flex gap-1.5">
               <i className="block size-1.25 rounded-full bg-primary" />
               <i className="block size-1.25 rounded-full bg-secondary opacity-70" />
@@ -210,28 +211,71 @@ function App() {
             className={`${container} grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_.9fr] md:gap-16`}
           >
             <div className="min-w-0 text-center md:text-left">
-              <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-primary-soft px-2.5 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
+              <motion.p
+                initial={{opacity: 0, y: 18}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 0.6, ease: [0.22, 1, 0.36, 1]}}
+                className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-primary-soft px-2.5 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+              >
                 <span className="size-1.5 shrink-0 rounded-full bg-secondary" />
                 Disponível para novas oportunidades
-              </p>
+              </motion.p>
 
-              <h1 className="m-0 mt-5 break-words font-title text-[clamp(2.8rem,7vw,5.4rem)] font-semibold leading-[1.05] tracking-[-.045em]">
+              <motion.h1
+                initial={{opacity: 0, y: 28}}
+                animate={{opacity: 1, y: 0}}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="m-0 mt-5 wrap-break-word font-title text-[clamp(2.8rem,7vw,5.4rem)] font-semibold leading-[1.05] tracking-[-.045em]"
+              >
                 Crijolise
                 <br />
-                <em className="not-italic text-primary">Morglia Marçal</em>
-              </h1>
+                <em className="whitespace-nowrap not-italic text-primary">
+                  Morglia Marçal
+                </em>
+              </motion.h1>
 
-              <p className="mb-3 mt-5 text-base text-text">
+              <motion.p
+                initial={{opacity: 0, y: 18}}
+                animate={{opacity: 1, y: 0}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.18,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="mb-3 mt-5 text-base text-text"
+              >
                 Junior Full-Stack Developer
-              </p>
+              </motion.p>
 
-              <p className="mx-auto max-w-140 text-sm leading-6 text-text-muted md:mx-0">
+              <motion.p
+                initial={{opacity: 0, y: 18}}
+                animate={{opacity: 1, y: 0}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.25,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="mx-auto max-w-140 text-sm leading-6 text-text-muted md:mx-0"
+              >
                 Desenvolvo aplicações web com foco no frontend e no backend,
                 combinando uma formação em Design Multimédia com aprendizagem
                 prática em desenvolvimento web.
-              </p>
+              </motion.p>
 
-              <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+              <motion.div
+                initial={{opacity: 0, y: 20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.32,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start"
+              >
                 <a
                   className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-bold text-[#080611] transition hover:-translate-y-0.5"
                   href="#projetos"
@@ -239,7 +283,6 @@ function App() {
                   Ver projetos
                   <ArrowUpRight size={14} />
                 </a>
-
                 <a
                   className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 text-sm font-bold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
                   href="#contactos"
@@ -247,7 +290,6 @@ function App() {
                   Contactar-me
                   <Mail size={14} />
                 </a>
-
                 <a
                   className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 text-sm font-bold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
                   href="https://github.com/Crijo-Mcal"
@@ -256,7 +298,6 @@ function App() {
                 >
                   GitHub
                 </a>
-
                 <a
                   className="inline-flex items-center justify-center gap-1.5 text-sm text-text-muted transition hover:-translate-y-0.5 hover:text-primary"
                   href={`${import.meta.env.BASE_URL}cv/Crijolise M Marçal.pdf`}
@@ -265,12 +306,20 @@ function App() {
                   <Download size={14} />
                   Descarregar CV
                 </a>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="relative mx-auto grid aspect-square w-full max-w-97.5 place-items-center max-md:order-first">
+            <motion.div
+              initial={{opacity: 0, y: 30}}
+              animate={{opacity: 1, y: 0}}
+              transition={{
+                duration: 0.8,
+                delay: 0.12,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="relative mx-auto grid aspect-square w-full max-w-97.5 place-items-center max-md:order-first"
+            >
               <div className="absolute inset-[5%] rounded-full border border-primary-soft" />
-
               <div className="absolute inset-[3%] rotate-18 rounded-full border border-[rgba(154,124,255,.25)]" />
 
               <img
@@ -279,13 +328,22 @@ function App() {
                 className="h-[83%] w-[83%] rounded-full border-7 border-surface-soft object-cover grayscale-[.12]"
               />
 
-              <div className="absolute bottom-[13%] right-[2%] max-w-[90%] border border-border bg-[#091126] px-3 py-2 font-mono text-xs text-secondary">
+              <motion.div
+                initial={{opacity: 0, y: 14}}
+                animate={{opacity: 1, y: 0}}
+                transition={{
+                  duration: 0.55,
+                  delay: 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="absolute bottom-[13%] right-[2%] max-w-[90%] border border-border bg-[#091126] px-3 py-2 font-mono text-xs text-secondary"
+              >
                 &lt;code exists /&gt;
                 <strong className="block font-body text-xs text-text">
                   aprendendo a construir.
                 </strong>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
@@ -294,19 +352,36 @@ function App() {
           <div
             className={`${container} grid grid-cols-1 gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16`}
           >
-            <SectionHeading
-              eyebrow="Sobre mim"
-              title={
-                <>
-                  Design, código e
-                  <br />
-                  vontade de evoluir.
-                </>
-              }
-            />
+            <motion.div
+              initial={{opacity: 0, x: -24}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{duration: 0.65, ease: [0.22, 1, 0.36, 1]}}
+            >
+              <SectionHeading
+                eyebrow="Sobre mim"
+                title={
+                  <>
+                    Design, código e
+                    <br />
+                    vontade de evoluir.
+                  </>
+                }
+              />
+            </motion.div>
 
             <div className="flex flex-col gap-3.5">
-              <p className="m-0 max-w-140 text-sm leading-6 text-text-muted">
+              <motion.p
+                initial={{opacity: 0, x: 24}}
+                whileInView={{opacity: 1, x: 0}}
+                viewport={{once: true, amount: 0.2}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="m-0 max-w-140 text-sm leading-6 text-text-muted"
+              >
                 Sou <span className="font-bold text-text">Crijolise</span>,
                 venho de{" "}
                 <span className="font-bold text-text">Timor-Leste</span> e
@@ -319,17 +394,37 @@ function App() {
                   Universidade de Coimbra
                 </span>
                 .
-              </p>
+              </motion.p>
 
-              <p className="m-0 max-w-140 text-sm leading-6 text-text-muted">
+              <motion.p
+                initial={{opacity: 0, x: 24}}
+                whileInView={{opacity: 1, x: 0}}
+                viewport={{once: true, amount: 0.2}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.16,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="m-0 max-w-140 text-sm leading-6 text-text-muted"
+              >
                 Atualmente, dedico-me ao desenvolvimento web, explorando tanto o
                 frontend como o backend.
-              </p>
+              </motion.p>
 
-              <p className="m-0 max-w-140 text-sm leading-6 text-text-muted">
+              <motion.p
+                initial={{opacity: 0, x: 24}}
+                whileInView={{opacity: 1, x: 0}}
+                viewport={{once: true, amount: 0.2}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.24,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="m-0 max-w-140 text-sm leading-6 text-text-muted"
+              >
                 Gosto de aprender, experimentar novas ideias e continuar a
                 evoluir através de novos projetos.
-              </p>
+              </motion.p>
             </div>
           </div>
         </section>
@@ -340,14 +435,34 @@ function App() {
           className={`${section} border-y border-[rgba(27,36,64,.5)] bg-[linear-gradient(180deg,rgba(10,14,29,.5),rgba(5,7,17,.18))]`}
         >
           <div className={container}>
-            <SectionHeading
-              eyebrow="Competências"
-              title="Tecnologias com que trabalho"
+            <motion.div
+              initial={{opacity: 0, x: 24}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
-              Uma base técnica que cresce com curiosidade e consistência.
-            </SectionHeading>
+              <SectionHeading
+                eyebrow="Competências"
+                title="Tecnologias com que trabalho"
+              >
+                Uma base técnica que cresce com curiosidade e consistência.
+              </SectionHeading>
+            </motion.div>
 
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+            <motion.div
+              initial={{opacity: 0, y: 28}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{
+                duration: 0.7,
+                delay: 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="grid grid-cols-1 gap-3 md:grid-cols-2"
+            >
               {skillGroups.map((group) => (
                 <article
                   key={group.title}
@@ -356,7 +471,6 @@ function App() {
                   <h2 className="mb-3 font-body text-base font-bold">
                     {group.title}
                   </h2>
-
                   <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item) => (
                       <span
@@ -369,26 +483,46 @@ function App() {
                   </div>
                 </article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Projetos */}
         <section id="projetos" className={section}>
           <div className={container}>
-            <SectionHeading
-              eyebrow="Projetos"
-              title="Aplicações que estou a construir"
+            <motion.div
+              initial={{opacity: 0, y: 40}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{
+                duration: 0.75,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
-              Projetos de prática e aprendizagem com foco em resolver problemas
-              reais através de interfaces claras.
-            </SectionHeading>
+              <SectionHeading
+                eyebrow="Projetos"
+                title="Aplicações que estou a construir"
+              >
+                Projetos de prática e aprendizagem com foco em resolver
+                problemas reais através de interfaces claras.
+              </SectionHeading>
+            </motion.div>
 
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <motion.div
+              initial={{opacity: 0, x: 40}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, amount: 0.1}}
+              transition={{
+                duration: 1,
+                delay: 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+            >
               {projects.map((project) => (
                 <ProjectCard key={project.number} project={project} />
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -400,47 +534,61 @@ function App() {
           <div
             className={`${container} grid grid-cols-1 gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16`}
           >
-            <SectionHeading
-              eyebrow="Experiência"
-              title={
-                <>
-                  Aprendizagem em
-                  <br />
-                  contexto real.
-                </>
-              }
-            />
+            <motion.div
+              initial={{opacity: 0, x: -24}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <SectionHeading
+                eyebrow="Experiência"
+                title={
+                  <>
+                    Aprendizagem em
+                    <br />
+                    contexto real.
+                  </>
+                }
+              />
+            </motion.div>
 
-            <div className="relative border-l border-border pl-4">
+            <motion.div
+              initial={{opacity: 0, x: 24}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{
+                duration: 0.65,
+                delay: 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="relative border-l border-border pl-4"
+            >
               <div className="absolute -left-1 top-[.2rem] size-2 rounded-full bg-primary" />
-
               <p className={eyebrow}>Estágio · BSWEBCONNECT (Aveiro)</p>
-
               <p className="mb-2 text-xs text-text-faint">
                 1 de junho de 2026 — atualidade
               </p>
-
               <h3 className="mb-3 font-title text-lg font-semibold leading-[1.05] tracking-[-.045em]">
                 Desenvolvimento da aplicação ReservaJá
               </h3>
-
               <p className="mb-6 max-w-140 text-sm leading-6 text-text-muted">
                 Durante o estágio, desenvolvo a ReservaJá, uma aplicação web de
                 marcação entre profissionais e clientes, com funcionalidades de
                 gestão de reservas, pagamentos online e outras ferramentas de
                 apoio ao negócio.
               </p>
-
               <div className="flex max-w-130 flex-col gap-1 rounded-sm border border-border bg-card p-4">
                 <strong className="text-xs">Frontend &amp; Backend</strong>
-
                 <span className="text-xs leading-5 text-text-faint">
                   Desenvolvimento de interfaces, funcionalidades backend,
                   integração de dados e implementação de novas funcionalidades
                   para a aplicação.
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -449,20 +597,36 @@ function App() {
           <div
             className={`${container} grid grid-cols-1 items-end gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16`}
           >
-            <div>
+            <motion.div
+              initial={{opacity: 0, x: -24}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
               <p className={eyebrow}>Contactos</p>
-
               <h2 className="mb-3 font-title text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-.045em]">
                 Vamos trabalhar juntos?
               </h2>
-
               <p className="max-w-140 text-sm leading-6 text-text-muted">
                 Estou disponível para conversar sobre projetos, oportunidades e
                 novas formas de aprender.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="md:justify-self-end">
+            <motion.div
+              initial={{opacity: 0, x: 24}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, amount: 0.2}}
+              transition={{
+                duration: 0.65,
+                delay: 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="md:justify-self-end"
+            >
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=crijolisemor25@gmail.com"
                 target="_blank"
@@ -472,17 +636,26 @@ function App() {
                 <Mail size={16} />
                 crijolisemor25@gmail.com
               </a>
-            </div>
+            </motion.div>
           </div>
 
-          <div className={`${container} mt-11 border-t border-border pt-6`}>
+          <motion.div
+            initial={{opacity: 0, x: 20}}
+            whileInView={{opacity: 1, x: 0}}
+            viewport={{once: true, amount: 0.2}}
+            transition={{
+              duration: 0.6,
+              delay: 0.16,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className={`${container} mt-11 border-t border-border pt-6`}
+          >
             <p className="m-0 text-xs text-text-faint">
               Estou disponível para novas oportunidades e projetos.
             </p>
-          </div>
+          </motion.div>
         </section>
       </main>
-
       {/* Footer */}
       <footer className="border-t border-border py-5 text-xs text-text-faint">
         <div
