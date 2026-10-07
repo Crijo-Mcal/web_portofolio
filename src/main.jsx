@@ -14,7 +14,7 @@ import {
 import {navigation, skillGroups, projects} from "./data/portfolio";
 import "./index.css";
 
-const container = "mx-auto w-[calc(100%-2.5rem)] max-w-[1160px]";
+const container = "mx-auto w-full max-w-[1160px] px-5";
 const section = "px-0 py-[var(--space-section)]";
 const eyebrow =
   "m-0 mb-3 text-xs font-bold uppercase tracking-widest text-primary";
