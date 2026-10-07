@@ -3,54 +3,38 @@
 @import "tailwindcss";
 
 @theme {
-    /* Colors */
     --color-bg: #050711;
     --color-surface: #0a0e1d;
-    --color-surface-soft: #0d1224;
     --color-card: #0c1121;
     --color-border: #1b2440;
-
     --color-primary: #9a7cff;
     --color-primary-soft: #302464;
     --color-secondary: #63ded1;
-
     --color-text: #f6f7fb;
     --color-text-muted: #9da7c3;
     --color-text-faint: #66708b;
 
-    /* Fonts */
-    --font-title: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-    --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
-
-    /* Radius */
-    --radius-sm: 0.5rem;
-    --radius-md: 0.75rem;
-    --radius-lg: 1rem;
-
-    /* Shadows */
-    --shadow-card: 0 1rem 3rem rgba(0, 0, 0, 0.18);
-
+    --font-title: "Space Grotesk", sans-serif;
+    --font-body: "Manrope", sans-serif;
 }
 
-/* Custom project variables */
 :root {
-    --space-section: clamp(5rem, 11vw, 9rem);
+    --space-section: clamp(5rem, 10vw, 8rem);
 }
 
-/* Base */
 @layer base {
     html {
         scroll-behavior: smooth;
+        overflow-x: clip;
     }
 
     body {
         margin: 0;
         min-width: 320px;
+        overflow-x: clip;
         background: var(--color-bg);
         color: var(--color-text);
         font-family: var(--font-body);
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
     }
 
     *,
@@ -64,37 +48,13 @@
         text-decoration: none;
     }
 
-    button,
-    input,
-    textarea,
-    select {
-        font: inherit;
-    }
-
     button {
+        font: inherit;
         cursor: pointer;
     }
 
     ::selection {
         background: var(--color-primary);
         color: var(--color-bg);
-    }
-
-    :focus-visible {
-        outline: 2px solid var(--color-primary);
-        outline-offset: 3px;
-    }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
     }
 }

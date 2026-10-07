@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {createRoot} from "react-dom/client";
-import {motion} from "motion/react";
 import {
   ArrowUpRight,
   Download,
@@ -8,14 +7,14 @@ import {
   Menu,
   X,
   Code2,
-  GraduationCap,
   ExternalLink,
 } from "lucide-react";
+
 import {navigation, skillGroups, projects} from "./data/portfolio";
 import "./index.css";
 
-const container = "mx-auto w-[calc(100%-2.5rem)] max-w-[1160px]";
-const section = "px-0 py-[var(--space-section)]";
+const container = "mx-auto w-full max-w-[1160px] px-5";
+const section = "py-[var(--space-section)]";
 const eyebrow =
   "m-0 mb-3 text-xs font-bold uppercase tracking-widest text-primary";
 
@@ -31,6 +30,7 @@ function Navbar() {
           className="font-title text-base font-semibold tracking-[-.02em]"
           href="#inicio"
           aria-label="Ir para o início"
+          onClick={() => setOpen(false)}
         >
           CRIJOLISE
         </a>
@@ -94,36 +94,6 @@ function SectionHeading({eyebrow: eyebrowText, title, children}) {
   );
 }
 
-function SocialLinks() {
-  return (
-    <div className="mt-6 flex gap-2">
-      <a
-        href="#contactos"
-        aria-label="Email"
-        className="grid size-8 place-items-center rounded-sm border border-border text-text-muted transition-colors duration-150 hover:border-primary hover:text-primary"
-      >
-        <Mail size={14} />
-      </a>
-
-      <a
-        href="#contactos"
-        aria-label="LinkedIn"
-        className="grid size-8 place-items-center rounded-sm border border-border text-text-muted transition-colors duration-150 hover:border-primary hover:text-primary"
-      >
-        <Code2 size={14} />
-      </a>
-
-      <a
-        href="#contactos"
-        aria-label="GitHub"
-        className="grid size-8 place-items-center rounded-sm border border-border text-text-muted transition-colors duration-150 hover:border-primary hover:text-primary"
-      >
-        <Code2 size={14} />
-      </a>
-    </div>
-  );
-}
-
 function ProjectCard({project}) {
   return (
     <article
@@ -133,7 +103,7 @@ function ProjectCard({project}) {
         bg-card
         transition duration-300
         hover:-translate-y-1 hover:border-primary-soft
-        ${project.featured ? "md:col-span-3 md:grid md:grid-cols-2" : ""}
+        ${project.featured ? "sm:col-span-2 lg:col-span-3" : ""}
       `}
     >
       <div
@@ -155,7 +125,7 @@ function ProjectCard({project}) {
             className="h-full min-h-45 w-full object-cover p-2 max-sm:min-h-40"
           />
         ) : (
-          <div className="w-[70%] border border-[#20284b] bg-[#080b16] p-4 shadow-[--shadow-card]">
+          <div className="w-[70%] border border-[#20284b] bg-[#080b16] p-4 shadow-[var(--shadow-card)]">
             <div className="mb-5 flex gap-1.5">
               <i className="block size-1.25 rounded-full bg-primary" />
               <i className="block size-1.25 rounded-full bg-secondary opacity-70" />
@@ -164,7 +134,7 @@ function ProjectCard({project}) {
 
             <span className="font-mono text-xs text-secondary">
               &lt;
-              {project.title.replace(" ", "").toLowerCase()}
+              {project.title.replace(/\s/g, "").toLowerCase()}
               /&gt;
             </span>
           </div>
@@ -234,151 +204,71 @@ function App() {
         {/* Hero */}
         <section
           id="inicio"
-          className={`${section} overflow-hidden pt-[clamp(0rem,10vw,4rem)]`}
+          className={`${section} pt-[clamp(0rem,10vw,4rem)]`}
         >
           <div
             className={`${container} grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_.9fr] md:gap-16`}
           >
             <div className="min-w-0 text-center md:text-left">
-              <motion.p
-                className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-primary-soft px-2.5 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-                initial={{opacity: 0, y: 24}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.7,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
+              <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-primary-soft px-2.5 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
                 <span className="size-1.5 shrink-0 rounded-full bg-secondary" />
                 Disponível para novas oportunidades
-              </motion.p>
+              </p>
 
-              <motion.h1
-                className="m-0 mt-5 break-words font-title text-[clamp(2.8rem,7vw,5.4rem)] font-semibold leading-[1.05] tracking-[-.045em]"
-                initial={{opacity: 0, y: 28}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.75,
-                  delay: 0.08,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
+              <h1 className="m-0 mt-5 break-words font-title text-[clamp(2.8rem,7vw,5.4rem)] font-semibold leading-[1.05] tracking-[-.045em]">
                 Crijolise
                 <br />
                 <em className="not-italic text-primary">Morglia Marçal</em>
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                className="mb-3 mt-5 text-base text-text"
-                initial={{opacity: 0, y: 24}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.16,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
+              <p className="mb-3 mt-5 text-base text-text">
                 Junior Full-Stack Developer
-              </motion.p>
+              </p>
 
-              <motion.p
-                className="mx-auto max-w-140 text-sm leading-6 text-text-muted md:mx-0"
-                initial={{opacity: 0, y: 24}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.24,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
+              <p className="mx-auto max-w-140 text-sm leading-6 text-text-muted md:mx-0">
                 Desenvolvo aplicações web com foco no frontend e no backend,
                 combinando uma formação em Design Multimédia com aprendizagem
                 prática em desenvolvimento web.
-              </motion.p>
+              </p>
 
-              <motion.div
-                className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start"
-                initial={{opacity: 0, y: 24}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.32,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                <motion.a
-                  className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-bold text-[#080611]"
+              <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+                <a
+                  className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-bold text-[#080611] transition hover:-translate-y-0.5"
                   href="#projetos"
-                  whileHover={{y: -2}}
-                  whileTap={{scale: 0.98}}
-                  transition={{duration: 0.2}}
                 >
                   Ver projetos
                   <ArrowUpRight size={14} />
-                </motion.a>
+                </a>
 
-                <motion.a
-                  className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 text-sm font-bold"
+                <a
+                  className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 text-sm font-bold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
                   href="#contactos"
-                  whileHover={{y: -2}}
-                  whileTap={{scale: 0.98}}
-                  transition={{duration: 0.2}}
                 >
                   Contactar-me
                   <Mail size={14} />
-                </motion.a>
+                </a>
 
-                <motion.a
-                  className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 text-sm font-bold"
+                <a
+                  className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 text-sm font-bold transition hover:-translate-y-0.5 hover:border-primary hover:text-primary"
                   href="https://github.com/Crijo-Mcal"
                   target="_blank"
                   rel="noreferrer"
-                  whileHover={{y: -2}}
-                  whileTap={{scale: 0.98}}
-                  transition={{duration: 0.2}}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-4"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.13 3.17.76.84 1.22 1.91 1.22 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
-                  </svg>
                   GitHub
-                </motion.a>
+                </a>
 
-                <motion.a
-                  className="inline-flex items-center justify-center gap-1.5 text-sm text-text-muted"
-                  href="cv/Crijolise M Marçal.pdf"
+                <a
+                  className="inline-flex items-center justify-center gap-1.5 text-sm text-text-muted transition hover:-translate-y-0.5 hover:text-primary"
+                  href={`${import.meta.env.BASE_URL}cv/Crijolise M Marçal.pdf`}
                   download
-                  whileHover={{y: -2}}
-                  whileTap={{scale: 0.98}}
-                  transition={{duration: 0.2}}
                 >
                   <Download size={14} />
                   Descarregar CV
-                </motion.a>
-              </motion.div>
+                </a>
+              </div>
             </div>
 
-            <motion.div
-              className="relative mx-auto grid aspect-square w-full max-w-97.5 place-items-center overflow-hidden max-md:order-first"
-              initial={{opacity: 0, y: 30}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.8,
-                delay: 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+            <div className="relative mx-auto grid aspect-square w-full max-w-97.5 place-items-center max-md:order-first">
               <div className="absolute inset-[5%] rounded-full border border-primary-soft" />
 
               <div className="absolute inset-[3%] rotate-18 rounded-full border border-[rgba(154,124,255,.25)]" />
@@ -389,23 +279,13 @@ function App() {
                 className="h-[83%] w-[83%] rounded-full border-7 border-surface-soft object-cover grayscale-[.12]"
               />
 
-              <motion.div
-                className="absolute bottom-[13%] right-[2%] max-w-[90%] border border-border bg-[#091126] px-3 py-2 font-mono text-xs text-secondary"
-                initial={{opacity: 0, y: 20}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.45,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
+              <div className="absolute bottom-[13%] right-[2%] max-w-[90%] border border-border bg-[#091126] px-3 py-2 font-mono text-xs text-secondary">
                 &lt;code exists /&gt;
                 <strong className="block font-body text-xs text-text">
                   aprendendo a construir.
                 </strong>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -414,38 +294,18 @@ function App() {
           <div
             className={`${container} grid grid-cols-1 gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16`}
           >
-            <motion.div
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.75,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <SectionHeading
-                eyebrow="Sobre mim"
-                title={
-                  <>
-                    Design, código e
-                    <br />
-                    vontade de evoluir.
-                  </>
-                }
-              />
-            </motion.div>
+            <SectionHeading
+              eyebrow="Sobre mim"
+              title={
+                <>
+                  Design, código e
+                  <br />
+                  vontade de evoluir.
+                </>
+              }
+            />
 
-            <motion.div
-              className="flex flex-col gap-3.5"
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.75,
-                delay: 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+            <div className="flex flex-col gap-3.5">
               <p className="m-0 max-w-140 text-sm leading-6 text-text-muted">
                 Sou <span className="font-bold text-text">Crijolise</span>,
                 venho de{" "}
@@ -470,7 +330,7 @@ function App() {
                 Gosto de aprender, experimentar novas ideias e continuar a
                 evoluir através de novos projetos.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -480,36 +340,18 @@ function App() {
           className={`${section} border-y border-[rgba(27,36,64,.5)] bg-[linear-gradient(180deg,rgba(10,14,29,.5),rgba(5,7,17,.18))]`}
         >
           <div className={container}>
-            <motion.div
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.75,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+            <SectionHeading
+              eyebrow="Competências"
+              title="Tecnologias com que trabalho"
             >
-              <SectionHeading
-                eyebrow="Competências"
-                title="Tecnologias com que trabalho"
-              >
-                Uma base técnica que cresce com curiosidade e consistência.
-              </SectionHeading>
-            </motion.div>
+              Uma base técnica que cresce com curiosidade e consistência.
+            </SectionHeading>
 
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              {skillGroups.map((group, index) => (
-                <motion.article
+              {skillGroups.map((group) => (
+                <article
                   key={group.title}
                   className="rounded-sm border border-border bg-card p-[1.35rem]"
-                  initial={{opacity: 0, y: 28}}
-                  whileInView={{opacity: 1, y: 0}}
-                  viewport={{once: true, amount: 0.5}}
-                  transition={{
-                    duration: 0.7,
-                    delay: 0.08 + index * 0.08,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
                 >
                   <h2 className="mb-3 font-body text-base font-bold">
                     {group.title}
@@ -525,7 +367,7 @@ function App() {
                       </span>
                     ))}
                   </div>
-                </motion.article>
+                </article>
               ))}
             </div>
           </div>
@@ -534,38 +376,19 @@ function App() {
         {/* Projetos */}
         <section id="projetos" className={section}>
           <div className={container}>
-            <motion.div
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.75,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+            <SectionHeading
+              eyebrow="Projetos"
+              title="Aplicações que estou a construir"
             >
-              <SectionHeading
-                eyebrow="Projetos"
-                title="Aplicações que estou a construir"
-              >
-                Projetos de prática e aprendizagem com foco em resolver
-                problemas reais através de interfaces claras.
-              </SectionHeading>
-            </motion.div>
+              Projetos de prática e aprendizagem com foco em resolver problemas
+              reais através de interfaces claras.
+            </SectionHeading>
 
-            <motion.div
-              className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.1}}
-              transition={{
-                duration: 0.75,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => (
                 <ProjectCard key={project.number} project={project} />
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -577,38 +400,18 @@ function App() {
           <div
             className={`${container} grid grid-cols-1 gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16`}
           >
-            <motion.div
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.75,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <SectionHeading
-                eyebrow="Experiência"
-                title={
-                  <>
-                    Aprendizagem em
-                    <br />
-                    contexto real.
-                  </>
-                }
-              />
-            </motion.div>
+            <SectionHeading
+              eyebrow="Experiência"
+              title={
+                <>
+                  Aprendizagem em
+                  <br />
+                  contexto real.
+                </>
+              }
+            />
 
-            <motion.div
-              className="relative border-l border-border pl-4"
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.75,
-                delay: 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+            <div className="relative border-l border-border pl-4">
               <div className="absolute -left-1 top-[.2rem] size-2 rounded-full bg-primary" />
 
               <p className={eyebrow}>Estágio · BSWEBCONNECT (Aveiro)</p>
@@ -628,17 +431,7 @@ function App() {
                 apoio ao negócio.
               </p>
 
-              <motion.div
-                className="flex max-w-130 flex-col gap-1 rounded-sm border border-border bg-card p-4"
-                initial={{opacity: 0, y: 20}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.65,
-                  delay: 0.2,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
+              <div className="flex max-w-130 flex-col gap-1 rounded-sm border border-border bg-card p-4">
                 <strong className="text-xs">Frontend &amp; Backend</strong>
 
                 <span className="text-xs leading-5 text-text-faint">
@@ -646,8 +439,8 @@ function App() {
                   integração de dados e implementação de novas funcionalidades
                   para a aplicação.
                 </span>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -656,15 +449,7 @@ function App() {
           <div
             className={`${container} grid grid-cols-1 items-end gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16`}
           >
-            <motion.div
-              initial={{opacity: 0, y: 28}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.75,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+            <div>
               <p className={eyebrow}>Contactos</p>
 
               <h2 className="mb-3 font-title text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-.045em]">
@@ -675,49 +460,26 @@ function App() {
                 Estou disponível para conversar sobre projetos, oportunidades e
                 novas formas de aprender.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="md:justify-self-end"
-              initial={{opacity: 0, y: 24}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true, amount: 0.5}}
-              transition={{
-                duration: 0.7,
-                delay: 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <motion.a
+            <div className="md:justify-self-end">
+              <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=crijolisemor25@gmail.com"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-3 text-sm text-text-muted transition-colors duration-150 hover:border-primary hover:text-primary"
-                whileHover={{y: -2}}
-                whileTap={{scale: 0.98}}
-                transition={{duration: 0.2}}
               >
                 <Mail size={16} />
                 crijolisemor25@gmail.com
-              </motion.a>
-            </motion.div>
+              </a>
+            </div>
           </div>
 
-          <motion.div
-            className={`${container} mt-11 border-t border-border pt-6`}
-            initial={{opacity: 0, y: 18}}
-            whileInView={{opacity: 1, y: 0}}
-            viewport={{once: true, amount: 0.5}}
-            transition={{
-              duration: 0.65,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
+          <div className={`${container} mt-11 border-t border-border pt-6`}>
             <p className="m-0 text-xs text-text-faint">
               Estou disponível para novas oportunidades e projetos.
             </p>
-          </motion.div>
+          </div>
         </section>
       </main>
 
