@@ -14,7 +14,7 @@ import {
 import {navigation, skillGroups, projects} from "./data/portfolio";
 import "./index.css";
 
-const container = "mx-auto w-full max-w-[1160px] px-5";
+const container = "mx-auto w-[calc(100%-2.5rem)] max-w-[1160px]";
 const section = "px-0 py-[var(--space-section)]";
 const eyebrow =
   "m-0 mb-3 text-xs font-bold uppercase tracking-widest text-primary";
@@ -234,14 +234,14 @@ function App() {
         {/* Hero */}
         <section
           id="inicio"
-          className={`${section} pt-[clamp(0rem,10vw,4rem)]`}
+          className={`${section} overflow-hidden pt-[clamp(0rem,10vw,4rem)]`}
         >
           <div
             className={`${container} grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_.9fr] md:gap-16`}
           >
-            <div className="text-center md:text-left">
+            <div className="min-w-0 text-center md:text-left">
               <motion.p
-                className=" mb-5 inline-flex items-center gap-2 rounded-full  border border-primary-soft  px-2.5 py-1.5  text-xs font-bold uppercase tracking-widest  text-primary "
+                className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-primary-soft px-2.5 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
                 initial={{opacity: 0, y: 24}}
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true, amount: 0.5}}
@@ -250,12 +250,12 @@ function App() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <span className="size-1.5 rounded-full bg-secondary" />
+                <span className="size-1.5 shrink-0 rounded-full bg-secondary" />
                 Disponível para novas oportunidades
               </motion.p>
 
               <motion.h1
-                className="m-0 mt-5 font-title text-[clamp(2.8rem,7vw,5.4rem)] font-semibold leading-[1.05] tracking-[-.045em]"
+                className="m-0 mt-5 break-words font-title text-[clamp(2.8rem,7vw,5.4rem)] font-semibold leading-[1.05] tracking-[-.045em]"
                 initial={{opacity: 0, y: 28}}
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true, amount: 0.5}}
@@ -349,7 +349,7 @@ function App() {
                     className="size-4"
                     aria-hidden="true"
                   >
-                    <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.13 3.17.76.84 1.22 1.91 1.22 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
+                    <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.13 3.17.76.84 1.22 1.91 1.22 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
                   </svg>
                   GitHub
                 </motion.a>
@@ -366,24 +366,10 @@ function App() {
                   Descarregar CV
                 </motion.a>
               </motion.div>
-
-              {/* <motion.div
-                className="justify-center md:justify-start"
-                initial={{opacity: 0, y: 20}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.5}}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                <SocialLinks />
-              </motion.div> */}
             </div>
 
             <motion.div
-              className="relative mx-auto grid aspect-square w-full max-w-97.5 place-items-center max-md:order-first"
+              className="relative mx-auto grid aspect-square w-full max-w-97.5 place-items-center overflow-hidden max-md:order-first"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
               viewport={{once: true, amount: 0.5}}
@@ -404,7 +390,7 @@ function App() {
               />
 
               <motion.div
-                className=" absolute bottom-[13%] right-[-1%] border border-border bg-[#091126] px-3 py-2 font-mono text-xs text-secondary"
+                className="absolute bottom-[13%] right-[2%] max-w-[90%] border border-border bg-[#091126] px-3 py-2 font-mono text-xs text-secondary"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true, amount: 0.5}}
