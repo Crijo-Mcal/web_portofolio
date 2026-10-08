@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {createRoot} from "react-dom/client";
 import {motion} from "motion/react";
+import {Analytics} from "@vercel/analytics/react";
 import {
   ArrowUpRight,
   Download,
@@ -662,6 +663,9 @@ function App() {
           <span>Construído com curiosidade e código.</span>
         </div>
       </footer>
+
+      {/* vercel */}
+      <Analytics />
     </>
   );
 }
