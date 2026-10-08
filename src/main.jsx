@@ -203,10 +203,7 @@ function App() {
 
       <main>
         {/* Hero */}
-        <section
-          id="inicio"
-          className={`${section} pt-[clamp(0rem,10vw,4rem)]`}
-        >
+        <section id="inicio" className="py-[clamp(2rem,10vw,6rem)]">
           <div
             className={`${container} grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_.9fr] md:gap-16`}
           >
