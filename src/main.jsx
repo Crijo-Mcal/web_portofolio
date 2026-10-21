@@ -298,7 +298,7 @@ function App() {
                 </a>
                 <a
                   className="inline-flex items-center justify-center gap-1.5 text-sm text-text-muted transition hover:-translate-y-0.5 hover:text-primary"
-                  href={`${import.meta.env.BASE_URL}cv/Crijolise M Marçal.pdf`}
+                  href={`${import.meta.env.BASE_URL}cv/CV_Crijolise_Marcal.pdf`}
                   download
                 >
                   <Download size={14} />
